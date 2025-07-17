@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midad-Store</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <nav class="nav-content">
+            <a href="#" class="logo">متجر مداد الإلكتروني</a>
+            <ul class="nav-links">
+                <li><a href="#products-section">المنتجات</a></li>
+                <li><a href="#add-product-section">أضف منتج</a></li>
+                <li><a href="#footer">تواصل معنا</a></li>
+                <li>
+                    <a href="#" id="cart-icon">
+                        <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart" class="cart-img">
+                        <span id="cart-count" class="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="products-section" class="products-grid">
+            <h2>منتجاتنا</h2>
+            <div id="product-list" class="product-cards-container">
+                </div>
+        </section>
+
+        <section id="add-product-section" class="add-product-form-section">
+            <h2>إضافة منتج جديد</h2>
+            <form id="add-product-form" class="add-product-form">
+                <div class="form-group">
+                    <label for="product-title">اسم المنتج:</label>
+                    <input type="text" id="product-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">السعر:</label>
+                    <input type="number" id="product-price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-description">الوصف:</label>
+                    <textarea id="product-description" rows="5" required></textarea>
+               
+                <div class="form-group">
+                    <label for="product-category">الفئة</label>
+                    <select id="product-category" name="product-category" required>
+                        <option value="">اختر الفئة</option>
+                        <option value="electronics">إلكترونيات</option>
+                        <option value="jewelery">مجوهرات</option>
+                        <option value="men's clothing">ملابس رجالية</option>
+                        <option value="women's clothing">ملابس نسائية</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product-image">رابط الصورة (URL):</label>
+                    <input type="url" id="product-image" required>
+                </div>
+                <button type="submit" class="btn-submit">أضف المنتج</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close-button">&times;</span>
+            <h3>سلة التسوق</h3>
+            <div id="cart-items" class="cart-items-container">
+                </div>
+            <div class="cart-summary">
+                <h4>الإجمالي: <span id="cart-total">0.00</span> د.ع</h4>
+                <button class="btn-checkout">إتمام الشراء</button>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>عن متجر مداد</h3>
+                    <p>متجر مداد الإلكتروني هو وجهتك المثالية للتسوق عبر الإنترنت، نقدم لك أفضل المنتجات بأسعار تنافسية وجودة عالية.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/edumidad"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/edumidad"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/edumidad"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/edumidad"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section links">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#products-section">المنتجات</a></li>
+                        <li><a href="#add-product-section">إضافة منتج</a></li>
+                        <li><a href="privciy.html">سياسة الخصوصية</a></li>
+                        <li><a href="terms-of-service.html">شروط الاستخدام</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>تواصل معنا</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>  العنوان : الجمهورية العربية السورية حلب</p>
+                    <p><i class="fas fa-phone"></i> الهاتف: +905349259963</p>
+                    <p><i class="fas fa-envelope"></i> البريد الإلكتروني: info@midad-store.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 متجر مداد الإلكتروني. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
