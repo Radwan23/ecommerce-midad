@@ -20,7 +20,7 @@ function createProductCard(product) {
 
     const addToCartButton = productCard.querySelector('.add-to-cart-btn');
     addToCartButton.addEventListener('click', () => {
-        addToCart(product);  
+        addToCart(product);
     });
 
     return productCard;
@@ -51,7 +51,7 @@ async function handleAddProductFormSubmit(event) {
     const category = document.getElementById('product-category').value;
     const image = document.getElementById('product-image').value;
 
-     if (!title || isNaN(price) || price <= 0 || !description || !category || !image) {
+    if (!title || isNaN(price) || price <= 0 || !description || !category || !image) {
         alert('يرجى ملء جميع الحقول بشكل صحيح.');
         return;
     }
@@ -74,14 +74,14 @@ async function handleAddProductFormSubmit(event) {
     }
 }
 
- 
+
 async function loadProducts() {
-    const products = await fetchProducts(); 
+    const products = await fetchProducts();
     displayProducts(products);
 }
 
- 
+
 document.addEventListener('DOMContentLoaded', () => {
-    loadProducts(); 
-    addProductForm.addEventListener('submit', handleAddProductFormSubmit);  
+    loadProducts();
+    addProductForm.addEventListener('submit', handleAddProductFormSubmit);
 });
