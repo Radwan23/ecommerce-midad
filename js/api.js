@@ -14,7 +14,7 @@ async function fetchProducts() {
         return products;
     } catch (error) {
         console.error('Error fetching products:', error);
-        return []; // إرجاع مصفوفة فارغة في حالة الخطأ
+        return [];  
     }
 }
 

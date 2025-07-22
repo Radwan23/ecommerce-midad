@@ -20,7 +20,7 @@ function createProductCard(product) {
 
     const addToCartButton = productCard.querySelector('.add-to-cart-btn');
     addToCartButton.addEventListener('click', () => {
-        addToCart(product); // استدعاء وظيفة إضافة المنتج إلى السلة من cart.js
+        addToCart(product);  
     });
 
     return productCard;
@@ -51,8 +51,7 @@ async function handleAddProductFormSubmit(event) {
     const category = document.getElementById('product-category').value;
     const image = document.getElementById('product-image').value;
 
-    // التحقق البسيط من صحة الإدخالات
-    if (!title || isNaN(price) || price <= 0 || !description || !category || !image) {
+     if (!title || isNaN(price) || price <= 0 || !description || !category || !image) {
         alert('يرجى ملء جميع الحقول بشكل صحيح.');
         return;
     }
@@ -75,16 +74,14 @@ async function handleAddProductFormSubmit(event) {
     }
 }
 
-/**
- * يحمل ويعرض المنتجات عند تحميل الصفحة.
- */
+ 
 async function loadProducts() {
-    const products = await fetchProducts(); // استدعاء وظيفة جلب المنتجات من api.js
+    const products = await fetchProducts(); 
     displayProducts(products);
 }
 
-// الأحداث عند تحميل الصفحة
+ 
 document.addEventListener('DOMContentLoaded', () => {
-    loadProducts(); // تحميل المنتجات عند تحميل الصفحة
-    addProductForm.addEventListener('submit', handleAddProductFormSubmit); // معالجة إرسال نموذج إضافة منتج
+    loadProducts(); 
+    addProductForm.addEventListener('submit', handleAddProductFormSubmit);  
 });

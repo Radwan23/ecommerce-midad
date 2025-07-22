@@ -7,9 +7,7 @@ const cartModal = document.getElementById('cart-modal');
 const cartIcon = document.getElementById('cart-icon');
 const closeModalButton = document.querySelector('.cart-modal .close-button');
 
-/**
- * يحفظ حالة سلة التسوق في التخزين المحلي.
- */
+ 
 function saveCart() {
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
     updateCartCount();
@@ -68,9 +66,7 @@ function removeFromCart(productId) {
     saveCart();
 }
 
-/**
- * يعرض عناصر سلة التسوق في النافذة المنبثقة.
- */
+ 
 function renderCartItems() {
     updateCartCount();
     cartItemsContainer.innerHTML = '';
@@ -101,8 +97,7 @@ function renderCartItems() {
     }
     cartTotalElement.textContent = total.toFixed(2);
 
-    // إضافة مستمعي الأحداث لأزرار الكمية والحذف بعد إعادة العرض
-    document.querySelectorAll('.decrease-quantity').forEach(button => {
+     document.querySelectorAll('.decrease-quantity').forEach(button => {
         button.addEventListener('click', (event) => {
             const productId = parseInt(event.target.dataset.id);
             decreaseQuantity(productId);
@@ -124,9 +119,7 @@ function renderCartItems() {
     });
 }
 
-/**
- * يحدث عدد المنتجات في أيقونة السلة.
- */
+ 
 function updateCartCount() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCountElement.textContent = totalItems;
@@ -136,7 +129,7 @@ function updateCartCount() {
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     cartCount.textContent = totalItems;
 }
-// عرض/إخفاء نافذة السلة
+   
 cartIcon.addEventListener('click', (event) => {
     event.preventDefault();
     cartModal.classList.add('show');
@@ -147,12 +140,10 @@ closeModalButton.addEventListener('click', () => {
     cartModal.classList.remove('show');
 });
 
-// إغلاق النافذة عند النقر خارجها
-window.addEventListener('click', (event) => {
+ window.addEventListener('click', (event) => {
     if (event.target === cartModal) {
         cartModal.classList.remove('show');
     }
 });
 
-// تهيئة عدد السلة عند تحميل الصفحة
-updateCartCount();
+ updateCartCount();
