@@ -1,11 +1,6 @@
 const productListElement = document.getElementById('product-list');
 const addProductForm = document.getElementById('add-product-form');
 
-/**
- * ينشئ بطاقة منتج HTML.
- * @param {Object} product - كائن المنتج.
- * @returns {HTMLElement} عنصر HTML لبطاقة المنتج.
- */
 function createProductCard(product) {
     const productCard = document.createElement('div');
     productCard.classList.add('product-card');
@@ -26,24 +21,17 @@ function createProductCard(product) {
     return productCard;
 }
 
-/**
- * يعرض قائمة المنتجات على الواجهة.
- * @param {Array} products - مصفوفة المنتجات.
- */
+
 function displayProducts(products) {
-    productListElement.innerHTML = ''; // مسح المنتجات الموجودة
+    productListElement.innerHTML = '';
     products.forEach(product => {
         const card = createProductCard(product);
         productListElement.appendChild(card);
     });
 }
 
-/**
- * يعالج إرسال نموذج إضافة منتج جديد.
- * @param {Event} event - كائن حدث الإرسال.
- */
 async function handleAddProductFormSubmit(event) {
-    event.preventDefault(); // منع الإرسال الافتراضي للنموذج
+    event.preventDefault();
 
     const title = document.getElementById('product-title').value;
     const price = parseFloat(document.getElementById('product-price').value);
@@ -64,13 +52,11 @@ async function handleAddProductFormSubmit(event) {
         category
     };
 
-    const addedProduct = await addProduct(newProductData); // استدعاء وظيفة إضافة المنتج من api.js
+    const addedProduct = await addProduct(newProductData);
     if (addedProduct) {
         alert(`تم إضافة المنتج "${addedProduct.title}" بنجاح!`);
-        // تحديث قائمة المنتجات بعد الإضافة (يمكن إعادة جلب المنتجات أو إضافة المنتج الجديد للقائمة)
-        // للحفاظ على البساطة، سنقوم بإعادة جلب جميع المنتجات
-        loadProducts();
-        addProductForm.reset(); // مسح النموذج
+
+        addProductForm.reset();
     }
 }
 

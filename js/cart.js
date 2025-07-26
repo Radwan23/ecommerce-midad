@@ -14,10 +14,7 @@ function saveCart() {
     renderCartItems();
 }
 
-/**
- * يضيف منتجًا إلى سلة التسوق أو يزيد من كميته.
- * @param {Object} product - المنتج المراد إضافته.
- */
+
 function addToCart(product) {
     const existingItem = cart.find(item => item.id === product.id);
     if (existingItem) {
@@ -29,10 +26,7 @@ function addToCart(product) {
     alert(`تم إضافة "${product.title}" إلى السلة.`);
 }
 
-/**
- * يزيد كمية منتج معين في السلة.
- * @param {number} productId - معرف المنتج.
- */
+
 function increaseQuantity(productId) {
     const item = cart.find(item => item.id === productId);
     if (item) {
@@ -41,26 +35,20 @@ function increaseQuantity(productId) {
     }
 }
 
-/**
- * ينقص كمية منتج معين في السلة أو يحذفه إذا كانت الكمية 1.
- * @param {number} productId - معرف المنتج.
- */
+
 function decreaseQuantity(productId) {
     const itemIndex = cart.findIndex(item => item.id === productId);
     if (itemIndex > -1) {
         if (cart[itemIndex].quantity > 1) {
             cart[itemIndex].quantity--;
         } else {
-            cart.splice(itemIndex, 1); // حذف المنتج إذا كانت الكمية 1
+            cart.splice(itemIndex, 1);
         }
         saveCart();
     }
 }
 
-/**
- * يحذف منتجًا بالكامل من سلة التسوق.
- * @param {number} productId - معرف المنتج.
- */
+
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
     saveCart();
@@ -121,19 +109,16 @@ function renderCartItems() {
 
 
 function updateCartCount() {
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartCountElement.textContent = totalItems;
-}
-function updateCartCount() {
     const cartCount = document.querySelector('.cart-count');
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     cartCount.textContent = totalItems;
 }
 
+
 cartIcon.addEventListener('click', (event) => {
     event.preventDefault();
     cartModal.classList.add('show');
-    renderCartItems(); // تأكد من تحديث العناصر عند فتح السلة
+    renderCartItems();
 });
 
 closeModalButton.addEventListener('click', () => {
